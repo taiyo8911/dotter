@@ -33,3 +33,10 @@ stopButton.onclick = function () {
 resetButton.onclick = function () {
     location.reload();
 };
+
+// downloadリンククリック時
+document.getElementById('download-link').addEventListener('click', (e) => {
+    const a = e.target;
+    a.href = canvas.toDataURL(); // Canvasからdata:URLを取得
+    a.download = new Date().getTime() + '.png'; // ダウンロードファイル名はタイムスタンプに設定
+});
